@@ -13,7 +13,7 @@ namespace Plumsail.Web.Host.Controllers
 {
     [ApiVersion("1")]
     [Route("/api/v{api-version:apiVersion}/[controller]")]
-    [ServiceFilter(typeof(ResponseWrapperAttribute))]
+    [ServiceFilter(typeof(ResponseWrapperAttribute))] //упаковка ответа на запрос в json (из объекта типа IRequestResult)
     public class NotebookController : ControllerBase
     {
         private INotebookWebService _notebookWebService;
@@ -23,8 +23,13 @@ namespace Plumsail.Web.Host.Controllers
             _notebookWebService = notebookWebService;
         }
 
+        /// <summary>
+        /// Получить список ноутбуков по фильтру с возможностью пэйджинга (paging)
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
         [HttpGet("get")]
-        public async Task<IActionResult> GetListFiltered(NotebookFilter filter)
+        public async Task<IActionResult> GetListFiltered(GetNotebooksFilteredRequest filter)
         {
             var res = await _notebookWebService.GetNotebooksFilteredAsync(filter);
             return new ObjectResult(res);

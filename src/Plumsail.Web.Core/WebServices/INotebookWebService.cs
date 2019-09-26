@@ -11,18 +11,27 @@ namespace Plumsail.Web.Core.WebServices
 {
     public interface INotebookWebService
     {
-        Task<PagedCollection<Notebook>> GetNotebooksFilteredAsync(NotebookFilter filter);
+        /// <summary>
+        /// Получить список ноутбуков по фильтру с возможностью пэйджинга (paging)
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <returns></returns>
+        Task<PagedCollection<Notebook>> GetNotebooksFilteredAsync(GetNotebooksFilteredRequest filter);
     }
 
     public class NotebookWebService : INotebookWebService
     {
+        /// <summary>
+        /// https://github.com/jbogard/MediatR
+        /// 
+        /// </summary>
         private IMediator _mediator;
 
         public NotebookWebService(IMediator mediator)
         {
             _mediator = mediator;
         }
-        public async Task<PagedCollection<Notebook>> GetNotebooksFilteredAsync(NotebookFilter filter)
+        public async Task<PagedCollection<Notebook>> GetNotebooksFilteredAsync(GetNotebooksFilteredRequest filter)
         {
             var response = await _mediator.Send(filter);
             return response;

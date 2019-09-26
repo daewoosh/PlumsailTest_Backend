@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -54,6 +55,8 @@ namespace Plumsail.Web.Host
             var module = new CoreAutofacModule();
             builder.RegisterModule(module);
             module.Start();
+
+
             return builder.Build();
         }
 

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Plumsail.DAL.Configurations
 {
-    public class NotebookConfiguration : IEntityTypeConfiguration<Notebook>
+    internal class NotebookConfiguration : IEntityTypeConfiguration<Notebook>
     {
         public void Configure(EntityTypeBuilder<Notebook> builder)
         {

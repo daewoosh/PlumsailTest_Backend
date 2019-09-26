@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Plumsail.CommonLib\Plumsail.CommonLib.csproj" />
+    <ProjectReference Include="..\Plumsail.DAL\Plumsail.DAL.csproj" />
+    <ProjectReference Include="..\Plumsail.Domain\Plumsail.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +21,10 @@
     <Reference Include="Microsoft.AspNetCore.Mvc.Formatters.Json">
       <HintPath>..\..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.formatters.json\2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Formatters.Json.dll</HintPath>
     </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataContracts\Models\" />
   </ItemGroup>
 
 </Project>

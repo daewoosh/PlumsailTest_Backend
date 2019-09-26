@@ -4,7 +4,7 @@ using Plumsail.Domain.Entities;
 
 namespace Plumsail.DAL.Configurations
 {
-    public class VendorConfiguration : IEntityTypeConfiguration<Vendor>
+    internal class VendorConfiguration : IEntityTypeConfiguration<Vendor>
     {
         public void Configure(EntityTypeBuilder<Vendor> builder)
         {

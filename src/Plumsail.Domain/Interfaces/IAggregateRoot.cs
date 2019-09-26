@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Plumsail.Domain.Interfaces
 {
-    class IAggregateRoot
+    public interface IAggregateRoot
     {
     }
 }
